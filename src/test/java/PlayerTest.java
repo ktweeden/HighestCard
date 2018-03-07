@@ -18,6 +18,13 @@ public class PlayerTest {
     public void canPickUpCard() {
         this.player.pickUpCard(card);
         assertTrue(player.getHand() != null);
-        assertEquals(card, player.getHand());
+        assertEquals(card, player.getHand().get(0));
+    }
+
+    @Test
+    public void valueOfHandTest() {
+        this.player.pickUpCard(card);
+        this.player.pickUpCard(card);
+        assertEquals(16, player.valueOfHand());
     }
 }

@@ -11,6 +11,11 @@ public class Game {
         generatePlayers(numberOfPlayers);
     }
 
+    public void play(){
+        deal();
+        findWinner();
+    }
+
     private void generatePlayers(int numberOfPlayers){
         for (int i=0; i<numberOfPlayers; i++){
             this.players.add(new Player());
@@ -32,12 +37,12 @@ public class Game {
         int highest = 0;
         ArrayList<Player> winners = new ArrayList<>();
         for (Player player : this.players){
-            if(player.getHand().getValue() > highest) {
-                highest = player.getHand().getValue();
+            if(player.valueOfHand() > highest) {
+                highest = player.valueOfHand();
                 winners.clear();
                 winners.add(player);
             }
-            else if(player.getHand().getValue() == highest) {
+            else if(player.valueOfHand() == highest) {
                 winners.add(player);
             }
         }
