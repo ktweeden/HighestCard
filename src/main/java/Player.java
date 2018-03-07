@@ -1,11 +1,16 @@
 public class Player {
 
-    String name;
     Card hand;
 
-    public Player(String name) {
-        this.name = name;
+    public Player(){
+
     }
 
+    public Card getHand() {
+        return this.hand;
+    }
 
+    public void pickUpCard(Card card) {
+        this.hand = card;
+    }
 }
