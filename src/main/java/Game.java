@@ -22,4 +22,25 @@ public class Game {
     }
 
 
+    public void deal() {
+        for (Player player : this.players){
+            player.pickUpCard(this.deck.getCard());
+        }
+    }
+
+    public ArrayList<Player> findWinner() {
+        int highest = 0;
+        ArrayList<Player> winners = new ArrayList<>();
+        for (Player player : this.players){
+            if(player.getHand().getValue() > highest) {
+                highest = player.getHand().getValue();
+                winners.clear();
+                winners.add(player);
+            }
+            else if(player.getHand().getValue() == highest) {
+                winners.add(player);
+            }
+        }
+        return winners;
+    }
 }
